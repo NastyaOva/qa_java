@@ -1,3 +1,4 @@
+import com.example.Feline;
 import com.example.Lion;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +26,8 @@ public class LionManeTest {
 
     @Test
     public void doesHaveManeTest() throws Exception {
-        Lion lion = new Lion(sex);
+        Feline feline = new Feline();
+        Lion lion = new Lion(sex, feline);
         boolean actualResult = lion.doesHaveMane();
         assertEquals("Информация о наличии гривы неверна", expected, actualResult);
     }

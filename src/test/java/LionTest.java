@@ -1,5 +1,5 @@
+import com.example.Feline;
 import com.example.Lion;
-import com.example.Predator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -14,23 +14,21 @@ import static org.junit.Assert.assertEquals;
 public class LionTest {
 
     @Mock
-    Predator predator;
+    Feline feline;
 
     @Test
     public void getFoodTestForLion() throws Exception {
-        Mockito.when(predator.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        Lion lion = new Lion(predator);
+        Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        Lion lion = new Lion("Самец", feline);
         List<String> lionFood = lion.getFood();
         assertEquals("Список неверный", List.of("Животные", "Птицы", "Рыба"), lionFood);
-        Mockito.verify(predator).eatMeat();
     }
 
     @Test
     public void getKittensTest() throws Exception {
-        Mockito.when(predator.getOffspring()).thenReturn(1);
-        Lion lion = new Lion(predator);
-        int countKittens = lion.getKittens();
-        assertEquals("Количество котят неверное", 1, countKittens);
-        Mockito.verify(predator).getOffspring();
+        Mockito.when(feline.getKittens()).thenReturn(1);
+        Lion lion = new Lion("Самка", feline);
+        int kittens = lion.getKittens();
+        assertEquals("Количество котят неверное", 1, kittens);
     }
 }

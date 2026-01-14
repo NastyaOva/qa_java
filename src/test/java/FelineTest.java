@@ -14,10 +14,10 @@ public class FelineTest {
     }
 
     @Test
-    public void getOffspringTest() {
+    public void getKittenDefaultTest() {
         Feline feline = new Feline();
-        int offspring = feline.getOffspring();
-        assertEquals("Неверное количество", 1, offspring);
+        int kitten = feline.getKittens();
+        assertEquals("Неверное количество", 1, kitten);
     }
 
     @Test

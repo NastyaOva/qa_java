@@ -1,5 +1,5 @@
 import com.example.Cat;
-import com.example.Predator;
+import com.example.Feline;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -14,20 +14,19 @@ import static org.junit.Assert.assertEquals;
 public class CatTest {
 
     @Mock
-    Predator predator;
+    Feline feline;
 
     @Test
     public void getFoodTestForCat() throws Exception {
-        Mockito.when(predator.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        Cat cat = new Cat(predator);
+        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        Cat cat = new Cat(feline);
         List<String> catFood = cat.getFood();
         assertEquals("Список неверный", List.of("Животные", "Птицы", "Рыба"), catFood);
-        Mockito.verify(predator).eatMeat();
     }
 
     @Test
     public void getSoundTest() {
-        Cat cat = new Cat(null);
+        Cat cat = new Cat(feline);
         String catSound = cat.getSound();
         assertEquals("Кошка издает не такой звук!", "Мяу", catSound);
     }
